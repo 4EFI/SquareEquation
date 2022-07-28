@@ -6,126 +6,44 @@
 //}----------------------------------------------------------------------------
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <math.h>
+#include <assert.h>
 #include <algorithm>
-#include <TXLib.h>
+#include "SquareEquation.h"
+
+using std::isfinite;
 
 //-----------------------------------------------------------------------------
 
-/// \brief Константа бесконечности
-const int    Infinity = 9999999;
-
-/// \brief Константа точности
-const double Accuracy = 10e-6;
-
-const int    Debug    = false;
-
-//-----------------------------------------------------------------------------
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для решения линейного уравнения
-///
-/// \param a первый коэффицент линейного уравнения
-/// \param b второй коэффицент линейного уравнения
-/// \param *solution указатель решения линейного уравнений
-///
-/// \return Возвращает количество решений уравнения
-///
-/// \note Функция принимает коэффиценты линейного уравнения типа a*x + b = 0
-///
-/// \warning Эта функция изменяет элементы передаваемой переменной
-///          для записи решения
-//}----------------------------------------------------------------------------
-
-int SolveLinearEquation(double a, double b, double *solution);
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для решения квадратного уравнения
-///
-/// \param a первый коэффицент квадратного уравнения
-/// \param b второй коэффицент квадратного уравнения
-/// \param c третий коэффицент квадратного уравнения
-/// \param *solutions массив решений квадратного уравнений
-///
-/// \return Возвращает количество решений уравнения
-///
-/// \note Функция принимает коэффиценты квадратного уравнения типа
-///       a*x^2 + b*x + c = 0, выводит в передаваемый массивв
-///
-/// \warning Эта функция изменяет элементы передаваемого массива
-//}----------------------------------------------------------------------------
-
-int SolveSquareEquation(double a, double b, double c, double *solutions);
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для вывода решений квадратного уравнения
-/// \param numSolutions количество решений
-/// \param *solutions массив рещений уравнения
-//}----------------------------------------------------------------------------
-
-void PrintSolutions(int numSolutions, double *solutions);
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для сравнения переменных типа double с погрешностью
-/// \param x первое число
-/// \param y второе число
-/// \param accuracy погрешность сравнения, по умолчанию равная Accurancy
-/// \return True, если два числа равны с учетом погрешности, иначе False
-//}----------------------------------------------------------------------------
-
-bool CompareNumbers(double x, double y, double accuracy = Accuracy);
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для ввода коэффицентов
-///
-/// \param *a указатель на первый коэффицент квадратного уравнения
-/// \param *b указатель на второй коэффицент квадратного уравнения
-/// \param *c указатель на третий коэффицент квадратного уравнения
-///
-/// \note При некорректном вводе данных,
-///       программа просит пользователя повторно их ввести
-///
-/// \warning Эта функция изменяет значения вводимых переменных
-//}----------------------------------------------------------------------------
-
-void EnterCoefficient(double *a, double *b, double *c);
-
-bool UnitTestsSquareEquation(double  a,                double b, double c,
-                             int     testNumSolutions, double *testSolutions,
-                             int     testNumber);
-
-//{----------------------------------------------------------------------------
-/// \brief Функция для очистки буффера вводимых данных
-//}----------------------------------------------------------------------------
-
-void ClearBuffer();
-
-//-----------------------------------------------------------------------------
-
-int main()
+int main(int argc, const char *argv[])
 {
+    ProcessCommandLine(argc, argv, sizeof(Options) / sizeof(OptionDef), Options);
+
     double solutions[2] = {};
 
     double a = 0, b = 0, c = 0;
 
     EnterCoefficient(&a, &b, &c);
 
-    int numSolutions = SolveSquareEquation(a, b, c, solutions);
+    int numSolutions = SolveSquareEquation(NAN, b, c, solutions);
 
     PrintSolutions(numSolutions, solutions);
 
-    /*
-    UnitTestsSquareEquation(0, 0,  0,  Infinity, nullptr, 1);
-
-    double arr_1[2] = {-3, 1};
-    UnitTestsSquareEquation(1, 2, -3,  2,        arr_1,   2);
-    */
+    return 0;
 }
 
 //-----------------------------------------------------------------------------
 
 int SolveLinearEquation(double a, double b, double *solution)
 {
+    //{ ASSERT
+    assert(isfinite(a) != 0);
+    assert(isfinite(b) != 0);
+    assert(solution    != NULL);
+    //}
+
     int numSolutions = 0;
 
     if (CompareNumbers(a, 0))
@@ -153,6 +71,13 @@ int SolveLinearEquation(double a, double b, double *solution)
 
 int SolveSquareEquation(double a, double b, double c, double *solutions)
 {
+    //{ ASSERT
+    assert(isfinite(a) != 0);
+    assert(isfinite(b) != 0);
+    assert(isfinite(c) != 0);
+    assert(solutions   != NULL);
+    //}
+
     int numSolutions = 0;
 
     //bx + c = 0
@@ -194,9 +119,13 @@ int SolveSquareEquation(double a, double b, double c, double *solutions)
 
 void PrintSolutions(int numSolutions, double *solutions)
 {
+    //{ ASSERT
+    assert(solutions != NULL);
+    //}
+
     if (numSolutions == 0)
     {
-        printf("None solutions\n");
+        printf("No solutions\n");
     }
     else if (numSolutions == Infinity)
     {
@@ -217,6 +146,12 @@ void PrintSolutions(int numSolutions, double *solutions)
 
 bool CompareNumbers(double x, double y, double accuracy)
 {
+    //{ ASSERT
+    assert(isfinite(x)        != 0);
+    assert(isfinite(y)        != 0);
+    assert(isfinite(accuracy) != 0);
+    //}
+
     bool isEqual = 0;
 
     if (fabs(x - y) < accuracy)
@@ -234,7 +169,13 @@ bool CompareNumbers(double x, double y, double accuracy)
 
 void EnterCoefficient(double *a, double *b, double *c)
 {
-    while(true)
+    //{ ASSERT
+    assert(a != NULL);
+    assert(b != NULL);
+    assert(c != NULL);
+    //}
+
+    while (true)
     {
         int numEnterNums = scanf("%lf %lf %lf", a, b, c);
 
@@ -255,6 +196,13 @@ bool UnitTestsSquareEquation(double  a,                double b, double c,
                              int     testNumSolutions, double *testSolutions,
                              int     testNumber)
 {
+    //{ ASSERT
+    assert(isfinite(a)   != 0);
+    assert(isfinite(b)   != 0);
+    assert(isfinite(c)   != 0);
+    assert(testSolutions != NULL);
+    //}
+
     bool noErrors = 1;
 
     double solutions[2] = {};
@@ -286,6 +234,11 @@ bool UnitTestsSquareEquation(double  a,                double b, double c,
         }
     }
 
+    if(noErrors)
+    {
+        printf("Unit test number %d have passed!\n", testNumber);
+    }
+
     return noErrors;
 }
 
@@ -294,6 +247,146 @@ bool UnitTestsSquareEquation(double  a,                double b, double c,
 void ClearBuffer()
 {
     while(getchar() != '\n') ;
+}
+
+//-----------------------------------------------------------------------------
+
+void ProcessCommandLine(int argc,       const char*     argv[],
+                        int numOptions, const OptionDef options[])
+{
+    //{ ASSERT
+    assert(argv != NULL);
+    //}
+
+    int optionNum = 0;
+
+    for(int i = 1; i < argc; i++)
+    {
+        optionNum = -1;
+
+        for(int j = 0; j < numOptions; j++)
+        {
+            if(strcmp(options[j].nameOption, argv[i]) == 0)
+            {
+                optionNum = j;
+            }
+        }
+
+        if(optionNum == -1)
+        {
+            printf("Option %s does not exist!\n", argv[i]);
+        }
+        else
+        {
+            options[optionNum].func();
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------
+
+int NumWordInArray(const char* word, int sizeArr, const char* arr[])
+{
+    //{ ASSERT
+    assert(word != NULL);
+    assert(arr  != NULL);
+    //}
+
+    for(int i = 0; i < sizeArr; i++)
+    {
+        if(strcmp(word, arr[i]) == 0)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+//-----------------------------------------------------------------------------
+
+void Help()
+{
+    printf("\nDocumentation located in local path were opened: html/index.html\n\n");
+
+    char option[] = "chrome file://C:\\Users\\kvv20\\OneDrive\\Documents\\SquareEquation\\html\\index.html";
+
+    system(option);
+}
+
+//-----------------------------------------------------------------------------
+
+void RunUnitTests()
+{
+    char path[] = "";
+
+    printf("Enter a path to file with unit tests...\n");
+    scanf("%s", path);
+
+    FILE *file = fopen(path, "r");
+
+    if (file == NULL)
+    {
+        printf("An error occurred while opening the file!\n");
+
+        return;
+    }
+
+    double a = 0, b = 0, c = 0;
+
+    int    numSolutions = 0;
+    double solutions[2] = {};
+
+    for(int nowUnitTest = 0; ; nowUnitTest++)
+    {
+        int numRead = fscanf(file, "%lf %lf %lf", &a, &b, &c);
+
+        if (numRead == EOF)
+        {
+            printf("Tests completed!\n");
+
+            break;
+        }
+
+        else if (numRead != 3)
+        {
+            printf("Incorrect coefficients in unit test number %d!\n", nowUnitTest);
+
+            continue;
+        }
+
+        fscanf(file, "%d", &numSolutions);
+
+        if(numSolutions != Infinity)
+        {
+            for(int i = 0; i < numSolutions; i++)
+            {
+                fscanf(file, "%lf", &solutions[i]);
+            }
+        }
+
+        UnitTestsSquareEquation(a, b, c, numSolutions, solutions, nowUnitTest);
+    }
+
+    fclose(file);
+}
+
+//-----------------------------------------------------------------------------
+
+void Woooo()
+{
+    char option[] = "chrome http://ded32.net.ru/woooo.mp3";
+
+    system(option);
+}
+
+//-----------------------------------------------------------------------------
+
+void Meow()
+{
+    char option[] = "chrome http://ded32.net.ru/meow.wav";
+
+    system(option);
 }
 
 //-----------------------------------------------------------------------------
