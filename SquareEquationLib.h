@@ -84,30 +84,28 @@ int SolveLinearEquation (double a, double b, double *solution)
     //{ ASSERT
     assert (isfinite (a) != 0);
     assert (isfinite (b) != 0);
-    assert (solution    != NULL);
+    assert (solution     != NULL);
     //}
-
-    int numSolutions = 0;
 
     if ( CompareNumbers (a, 0) )
     {
-        if ( CompareNumbers(b, 0) )
+        if ( CompareNumbers (b, 0) )
         {
-            numSolutions = Infinity;
+            return Infinity;
         }
         else
         {
-            numSolutions = 0;
+            return 0;
         }
     }
     else
     {
-        numSolutions = 1;
-
         *solution = (-b) / a;
+
+        return 1;
     }
 
-    return numSolutions;
+    return -1;
 }
 
 //-----------------------------------------------------------------------------
@@ -121,14 +119,20 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
     assert (solutions    != NULL);
     //}
 
-    int numSolutions = 0;
-
     //bx + c = 0
     if ( CompareNumbers (a, 0) )
     {
-        numSolutions = SolveLinearEquation (b, c, solutions);
+        return SolveLinearEquation (b, c, solutions);
+    }
 
-        return numSolutions;
+    if ( CompareNumbers(c, 0) )
+    {
+        solutions[0] = 0;
+
+        int numSolutions = SolveLinearEquation(a, b, &solutions[1]);
+
+        if (numSolutions == Infinity) return Infinity;
+        else                          return numSolutions + 1;
     }
 
     double D = b*b - 4*a*c;
@@ -137,12 +141,10 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
     if (D < 0)
     {
-        numSolutions = 0;
+        return 0;
     }
     else if ( CompareNumbers(D, 0) )
     {
-        numSolutions = 1;
-
         solutions[0] = -b / (2*a);
 
         #pragma GCC diagnostic push
@@ -152,16 +154,17 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
         #pragma GCC diagnostic pop
 
+        return 1;
     }
     else
     {
-        numSolutions = 2;
-
         solutions[0] = ( -b - sqrt(D) ) / (2*a);
         solutions[1] = ( -b + sqrt(D) ) / (2*a);
+
+        return 2;
     }
 
-    return numSolutions;
+    return -1;
 }
 
 //-----------------------------------------------------------------------------
@@ -174,17 +177,7 @@ bool CompareNumbers (double x, double y, double accuracy)
     assert (isfinite (accuracy) != 0);
     //}
 
-    bool isEqual = 0;
-
-    if ( fabs (x - y) < accuracy )
-    {
-        isEqual = 1;
-    }
-
-    if (Debug) printf ("line %d: x - y = %lg; accuracy = %lg; isEqual = %d\n",
-                       __LINE__, x - y, accuracy, isEqual);
-
-    return isEqual;
+    return ( fabs (x - y) < accuracy );
 }
 
 //-----------------------------------------------------------------------------

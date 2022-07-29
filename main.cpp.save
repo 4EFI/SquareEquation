@@ -20,6 +20,12 @@
 
 void EnterCoefficient (double *a, double *b, double *c);
 
+//{----------------------------------------------------------------------------
+/// \brief ‘ункци€ дл€ вывода решений квадратного уравнени€
+/// \param numSolutions количество решений
+/// \param *solutions массив рещений уравнени€
+//}----------------------------------------------------------------------------
+
 void PrintSolutions (int numSolutions, double *solutions);
 
 void Help();
@@ -27,9 +33,9 @@ void RunUnitTests();
 void Woooo();
 void Meow();
 
-bool RunOneUnitTest (double  a,                double b, double c,
-                     int     testNumSolutions, double *testSolutions,
-                     int     testNumber);
+bool RunOneUnitTest (double a,                double b, double c,
+                     int    testNumSolutions, double *testSolutions,
+                     int    testNumber);
 
 //-----------------------------------------------------------------------------
 
@@ -46,7 +52,15 @@ const OptionDef Options[] = {{"-h",      Help},
 
 int main (int argc, const char *argv[])
 {
-    ProcessCommandLine (argc, argv, sizeof (Options) / sizeof (OptionDef), Options);
+    if (IsExplanation)
+    {
+        printf ("This program solves square equations. "
+                "It does not solve round equations, sorry :(((\n");
+    }
+
+    int isFinished = ProcessCommandLine (argc, argv, 
+                                         sizeof (Options) / sizeof (OptionDef), 
+                                         Options);
 
     double solutions[2] = {};
 
@@ -71,6 +85,8 @@ void EnterCoefficient (double *a, double *b, double *c)
     assert (c != NULL);
     //}
 
+    if (IsExplanation) printf ("Enter coefficients a b c...\n");
+
     while (true)
     {
         int numEnterNums = scanf ("%lf %lf %lf", a, b, c);
@@ -82,7 +98,7 @@ void EnterCoefficient (double *a, double *b, double *c)
 
         ClearBuffer();
 
-        printf ("Not correct input, repeat please...\n");
+        if (IsExplanation) printf ("Not correct input, repeat please...\n");
     }
 }
 
@@ -96,11 +112,13 @@ void PrintSolutions (int numSolutions, double *solutions)
 
     if (numSolutions == 0)
     {
-        printf ("No solutions\n");
+        if (IsExplanation) printf ("No solutions\n");
+        else               printf ("0");
     }
     else if (numSolutions == Infinity)
     {
-        printf ("An infinite number of solutions\n");
+        if (IsExplanation) printf ("An infinite number of solutions\n");
+        else               printf ("-1\n");
     }
     else
     {
@@ -130,10 +148,15 @@ void Help()
 
 void RunUnitTests()
 {
-    char path[DIR] = "";
+    char path[_MAX_DIR] = "";
 
     printf ("Enter a path to file with unit tests...\n");
-    fgets  (path, );
+    fgets  (path, _MAX_DIR, stdin);
+
+    if(path[0] == '\0')
+    {
+        strcpy (path, "UnitTests.txt");
+    }
 
     FILE *file = fopen (path, "r");
 
@@ -177,7 +200,7 @@ void RunUnitTests()
             }
         }
 
-        UnitTestsSquareEquation (a, b, c, numSolutions, solutions, nowUnitTest);
+        RunOneUnitTest (a, b, c, numSolutions, solutions, nowUnitTest);
     }
 
     fclose (file);
@@ -204,9 +227,9 @@ void Meow()
 //}
 //-----------------------------------------------------------------------------
 
-bool UnitTestSquareEquation (double  a,                double b, double c,
-                             int     testNumSolutions, double testSolutions[],
-                             int     testNumber)
+bool RunOneUnitTest (double a,                double b, double c,
+                     int    testNumSolutions, double testSolutions[],
+                     int    testNumber)
 {
     //{ ASSERT
     assert (isfinite (a)  != 0);

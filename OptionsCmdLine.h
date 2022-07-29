@@ -8,13 +8,17 @@
 #include <assert.h>
 #include <algorithm>
 
+// --test "name" 5 --help
+// --test "name" 5 10 --help
+// --test "name" --help
+
 //-----------------------------------------------------------------------------
 
-struct OptionDef
+struct OptionDefZSR
 {
     const char* name;
 
-    void (*func)();
+    int (*func)(int argc, const char *argv[], int pos);
 };
 
 //-----------------------------------------------------------------------------
@@ -26,7 +30,7 @@ int NumWordInArray (const char* word, int sizeArr, const char* arr[]);
 
 //-----------------------------------------------------------------------------
 
-void ProcessCommandLine (int argc,       const char*     argv[],
+int ProcessCommandLine (int argc,       const char*     argv[],
                          int numOptions, const OptionDef options[])
 {
     //{ ASSERT
@@ -37,6 +41,8 @@ void ProcessCommandLine (int argc,       const char*     argv[],
 
     for (int numArg = 1; numArg < argc; numArg++)
     {
+        printf("Num arg %d: (%s)\n", numArg, argv[numArg]);
+
         optionNum = -1;
 
         for (int i = 0; i < numOptions; i++)
@@ -49,11 +55,15 @@ void ProcessCommandLine (int argc,       const char*     argv[],
 
         if (optionNum == -1)
         {
-            printf ("Option %s does not exist!\n", argv[numArg]);
+            printf ("Option \"%s\" does not exist!\n", argv[numArg]);
         }
         else
         {
-            options[optionNum].func();
+            int numSkips = options[optionNum].func();
+
+            if (numSkips < 0) return numSkips;
+
+            numArg += numSkips;
         }
     }
 }

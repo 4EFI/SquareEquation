@@ -52,7 +52,16 @@ const OptionDef Options[] = {{"-h",      Help},
 
 int main (int argc, const char *argv[])
 {
-    ProcessCommandLine (argc, argv, sizeof (Options) / sizeof (OptionDef), Options);
+    if (IsExplanation)
+    {
+        printf ("This program solves square equations. "
+                "It does not solve round equations, sorry :(((\n");
+    }
+
+    int numOption = ProcessCommandLine (argc, argv,
+                                         sizeof (Options) / sizeof (OptionDef),
+                                         Options);
+    if (numOption) return -numOption;
 
     double solutions[2] = {};
 
@@ -77,6 +86,8 @@ void EnterCoefficient (double *a, double *b, double *c)
     assert (c != NULL);
     //}
 
+    if (IsExplanation) printf ("Enter coefficients a b c...\n");
+
     while (true)
     {
         int numEnterNums = scanf ("%lf %lf %lf", a, b, c);
@@ -88,7 +99,7 @@ void EnterCoefficient (double *a, double *b, double *c)
 
         ClearBuffer();
 
-        printf ("Not correct input, repeat please...\n");
+        if (IsExplanation) printf ("Not correct input, repeat please...\n");
     }
 }
 
@@ -102,11 +113,13 @@ void PrintSolutions (int numSolutions, double *solutions)
 
     if (numSolutions == 0)
     {
-        printf ("No solutions\n");
+        if (IsExplanation) printf ("No solutions\n");
+        else               printf ("0");
     }
     else if (numSolutions == Infinity)
     {
-        printf ("An infinite number of solutions\n");
+        if (IsExplanation) printf ("An infinite number of solutions\n");
+        else               printf ("-1\n");
     }
     else
     {
@@ -140,6 +153,11 @@ void RunUnitTests()
 
     printf ("Enter a path to file with unit tests...\n");
     fgets  (path, _MAX_DIR, stdin);
+
+    if(path[0] == '\0')
+    {
+        strcpy (path, "UnitTests.txt");
+    }
 
     FILE *file = fopen (path, "r");
 
