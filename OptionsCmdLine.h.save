@@ -1,0 +1,49 @@
+//-----------------------------------------------------------------------------
+
+struct OptionDef
+{
+    const char* nameOption;
+
+    void (*func)();
+};
+
+//-----------------------------------------------------------------------------
+
+void ProcessCommandLine(int argc,       const char*     argv[],
+                        int numOptions, const OptionDef options[]);
+
+//-----------------------------------------------------------------------------
+
+void ProcessCommandLine(int argc,       const char*     argv[],
+                        int numOptions, const OptionDef options[])
+{
+    //{ ASSERT
+    assert(argv != NULL);
+    //}
+
+    int optionNum = 0;
+
+    for(int i = 1; i < argc; i++)
+    {
+        optionNum = -1;
+
+        for(int j = 0; j < numOptions; j++)
+        {
+            if(strcmp(options[j].nameOption, argv[i]) == 0)
+            {
+                optionNum = j;
+            }
+        }
+
+        if(optionNum == -1)
+        {
+            printf("Option %s does not exist!\n", argv[i]);
+        }
+        else
+        {
+            options[optionNum].func();
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------
