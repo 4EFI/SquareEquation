@@ -17,7 +17,9 @@ void ClearBuffer();
 
 void ClearBuffer()
 {
-    while (getchar() != '\n') ;
+    while (getchar() != '\n') {;}
 }
+
+//-----------------------------------------------------------------------------
 
 #endif

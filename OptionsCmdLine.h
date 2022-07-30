@@ -14,7 +14,7 @@
 
 //-----------------------------------------------------------------------------
 
-struct OptionDefZSR
+struct Option
 {
     const char* name;
 
@@ -23,15 +23,15 @@ struct OptionDefZSR
 
 //-----------------------------------------------------------------------------
 
-void ProcessCommandLine (int argc,       const char*     argv[],
-                         int numOptions, const OptionDef options[]);
+int ProcessCommandLine (int argc,       const char*     argv[],
+                         int numOptions, const Option options[]);
 
 int NumWordInArray (const char* word, int sizeArr, const char* arr[]);
 
 //-----------------------------------------------------------------------------
 
 int ProcessCommandLine (int argc,       const char*     argv[],
-                         int numOptions, const OptionDef options[])
+                        int numOptions, const Option options[])
 {
     //{ ASSERT
     assert (argv != NULL);
@@ -41,8 +41,6 @@ int ProcessCommandLine (int argc,       const char*     argv[],
 
     for (int numArg = 1; numArg < argc; numArg++)
     {
-        printf("Num arg %d: (%s)\n", numArg, argv[numArg]);
-
         optionNum = -1;
 
         for (int i = 0; i < numOptions; i++)
@@ -59,13 +57,15 @@ int ProcessCommandLine (int argc,       const char*     argv[],
         }
         else
         {
-            int numSkips = options[optionNum].func();
+            int numSkips = options[optionNum].func(argc, argv, numArg);
 
             if (numSkips < 0) return numSkips;
 
             numArg += numSkips;
         }
     }
+
+    return 0;
 }
 
 //-----------------------------------------------------------------------------

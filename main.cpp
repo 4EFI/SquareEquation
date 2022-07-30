@@ -28,10 +28,10 @@ void EnterCoefficient (double *a, double *b, double *c);
 
 void PrintSolutions (int numSolutions, double *solutions);
 
-void Help();
-void RunUnitTests();
-void Woooo();
-void Meow();
+int Help         (int /*argc*/, const char* /*argv*/[], int /*pos*/);
+int RunUnitTests (int   argc,   const char*   argv  [], int   pos  );
+int Woooo        (int /*argc*/, const char* /*argv*/[], int /*pos*/);
+int Meow         (int /*argc*/, const char* /*argv*/[], int /*pos*/);
 
 bool RunOneUnitTest (double a,                double b, double c,
                      int    testNumSolutions, double *testSolutions,
@@ -39,14 +39,14 @@ bool RunOneUnitTest (double a,                double b, double c,
 
 //-----------------------------------------------------------------------------
 
-const OptionDef Options[] = {{"-h",      Help},
-                             {"/h",      Help},
-                             {"--help",  Help},
-                             {"/?",      Help},
-                             {"-t",      RunUnitTests},
-                             {"--test",  RunUnitTests},
-                             {"--woooo", Woooo},
-                             {"--meow",  Meow}};
+const Option Options[] = {{"-h",      Help},
+                          {"/h",      Help},
+                          {"--help",  Help},
+                          {"/?",      Help},
+                          {"-t",      RunUnitTests},
+                          {"--test",  RunUnitTests},
+                          {"--woooo", Woooo},
+                          {"--meow",  Meow}};
 
 //-----------------------------------------------------------------------------
 
@@ -59,9 +59,9 @@ int main (int argc, const char *argv[])
     }
 
     int numOption = ProcessCommandLine (argc, argv,
-                                         sizeof (Options) / sizeof (OptionDef),
-                                         Options);
-    if (numOption) return -numOption;
+                                        sizeof (Options) / sizeof (Option),
+                                        Options);
+    if (numOption < 0) return -numOption;
 
     double solutions[2] = {};
 
@@ -136,36 +136,48 @@ void PrintSolutions (int numSolutions, double *solutions)
 //{ Option Functions Implementation
 //-----------------------------------------------------------------------------
 
-void Help()
+int Help (int /*argc*/, const char* /*argv*/[], int /*pos*/)
 {
     printf ("\nDocumentation located in local path were opened: html/index.html\n\n");
 
     char option[] = "chrome file://html\\index.html";
 
     system (option);
+
+    return 0;
 }
 
 //-----------------------------------------------------------------------------
 
-void RunUnitTests()
+int RunUnitTests(int argc, const char* argv[], int pos)
 {
-    char path[_MAX_DIR] = "";
+    const char pathDefault[] = "UnitTests.txt";
 
-    printf ("Enter a path to file with unit tests...\n");
-    fgets  (path, _MAX_DIR, stdin);
+    FILE *file;
 
-    if(path[0] == '\0')
+    //The last option in the list
+    if (pos == argc - 1)
     {
-        strcpy (path, "UnitTests.txt");
-    }
+        file = fopen (pathDefault, "r");
 
-    FILE *file = fopen (path, "r");
+        if (file == NULL)
+        {
+            printf ("Default file does not exist!\n");
+
+            return 0;
+        }
+    }
+    else
+    {
+        file = fopen (argv[pos + 1], "r");
+    }
 
     if (file == NULL)
     {
         printf ("An error occurred while opening the file!\n");
 
-        return;
+        //The number of skipped arguments
+        return 1;
     }
 
     double a = 0, b = 0, c = 0;
@@ -183,46 +195,47 @@ void RunUnitTests()
 
             break;
         }
-
-        else if (numRead != 3)
+        else
         {
-            printf ("Incorrect coefficients in unit test number %d!\n", nowUnitTest);
+            fscanf (file, "%d", &numSolutions);
 
-            continue;
-        }
-
-        fscanf (file, "%d", &numSolutions);
-
-        if (numSolutions != Infinity)
-        {
-            for (int i = 0; i < numSolutions; i++)
+            if (numSolutions != Infinity)
             {
-                fscanf (file, "%lf", &solutions[i]);
+                for (int i = 0; i < numSolutions; i++)
+                {
+                    fscanf (file, "%lf", &solutions[i]);
+                }
             }
-        }
 
-        RunOneUnitTest (a, b, c, numSolutions, solutions, nowUnitTest);
+            RunOneUnitTest (a, b, c, numSolutions, solutions, nowUnitTest);
+        }
     }
 
     fclose (file);
+
+    return -pos;
 }
 
 //-----------------------------------------------------------------------------
 
-void Woooo()
+int Woooo(int /*argc*/, const char* /*argv*/[], int /*pos*/)
 {
     char option[] = "chrome http://ded32.net.ru/woooo.mp3";
 
     system (option);
+
+    return 0;
 }
 
 //-----------------------------------------------------------------------------
 
-void Meow()
+int Meow(int /*argc*/, const char* /*argv*/[], int /*pos*/)
 {
     char option[] = "chrome http://ded32.net.ru/meow.wav";
 
     system (option);
+
+    return 0;
 }
 
 //}
@@ -239,43 +252,43 @@ bool RunOneUnitTest (double a,                double b, double c,
     assert (testSolutions != NULL);
     //}
 
-    bool noErrors = 1;
-
     double solutions[2] = {};
 
     int numSolutions = SolveSquareEquation (a, b, c, solutions);
 
-    if (numSolutions != testNumSolutions)
+    if (numSolutions == Infinity && numSolutions == testNumSolutions)
     {
-        noErrors = 0;
-        printf ("%d: The number of solutions should be %d; program solution is %d\n",
-                testNumber, testNumSolutions, numSolutions);
+        goto testPassed;
     }
 
-    if (numSolutions == Infinity) return noErrors;
+    if (numSolutions != testNumSolutions)
+    {
+        printf ("%d: The number of solutions should be %d; program solution is %d\n",
+                testNumber, testNumSolutions, numSolutions);
 
-    if (testSolutions[1] < testSolutions[0])
+        return 0;
+    }
+
+    if (numSolutions == 2 && testSolutions[1] < testSolutions[0])
     {
         std::swap (testSolutions[0], testSolutions[1]);
     }
 
     for (int i = 0; i < numSolutions; i++)
     {
-        if (!CompareNumbers(testSolutions[i], solutions[i]))
+        if ( !CompareNumbers (testSolutions[i], solutions[i]) )
         {
             printf ("%d: Solution should be %lf; program solution is %lf\n",
                     testNumber, testSolutions[i], solutions[i]);
 
-            noErrors = 0;
+            return 0;
         }
     }
 
-    if (noErrors)
-    {
-        printf ("Unit test number %d have passed!\n", testNumber);
-    }
+    testPassed:
+    printf ("Unit test number %d have passed!\n", testNumber);
 
-    return noErrors;
+    return 1;
 }
 
 //-----------------------------------------------------------------------------
