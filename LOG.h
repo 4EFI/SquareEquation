@@ -36,8 +36,6 @@ private:
 FunctionsCallTree::FunctionsCallTree (const char* _funcName):
     funcName (_funcName)
 {
-    printf ("<");
-
     lvlTree++;
 }
 
@@ -46,8 +44,6 @@ FunctionsCallTree::FunctionsCallTree (const char* _funcName):
 FunctionsCallTree::~FunctionsCallTree()
 {
     lvlTree--;
-
-    printf (">");
 }
 
 //}
@@ -82,34 +78,26 @@ FILE* OpenLogFile (const char* path)
 #define LOG_INFO(file) \
     fprintf (file, "%s:%d: ", __FILE__, __LINE__);
 
-#define _LOG(file)
-{
-
+#define _LOG(file, str, ...)                    \
+{                                               \
+    if (Debug)                                  \
+    {                                           \
+        fprintf    (file, "%02d", lvlTree);     \
+        PutsSpaces (file, lvlTree * TabNumSym); \
+                                                \
+        LOG_INFO (file);                        \
+        fprintf  (file, str, ##__VA_ARGS__);    \
+        fputc    ('\n', file);                  \
+    }                                           \
 }
 
-#define FLOG(str, ...)                             \
-{                                                  \
-    if (Debug)                                     \
-    {                                              \
-        fprintf (LogFile, "%2d", lvlTree)          \
-        PutsSpaces (LogFile, lvlTree * TabNumSym); \
-                                                   \
-        LOG_INFO (LogFile);                        \
-        fprintf  (LogFile, str, ##__VA_ARGS__);    \
-        fputc    ('\n', LogFile);                  \
-    }                                              \
-}
+#define FLOG(str, ...)                  \
+    _LOG (LogFile, str, ##__VA_ARGS__); \
 
-#define LOG(str, ...)                          \
-{                                              \
-    if (Debug)                                 \
-    {                                          \
-        FLOG     (str, __VA_ARGS__);           \
-                                               \
-        LOG_INFO (stderr);                     \
-        fprintf  (stderr, str, ##__VA_ARGS__); \
-        fputc    ('\n', stderr);               \
-    }                                          \
+#define LOG(str, ...)                   \
+{                                       \
+    _LOG (LogFile, str, ##__VA_ARGS__); \
+    _LOG (stderr,  str, ##__VA_ARGS__); \
 }
 
 #define $(str)                                    \
