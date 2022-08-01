@@ -68,13 +68,13 @@ int main (int argc, const char *argv[])
 
     double a = 0, b = 0, c = 0;
 
-    EnterCoefficient(&a, &b, &c);
+    EnterCoefficient (&a, &b, &c);
+
+    $funcsTree
 
     int numSolutions = SolveSquareEquation (a, b, c, solutions);
 
     PrintSolutions (numSolutions, solutions);
-
-    FinishLog();
 
     return 0;
 }

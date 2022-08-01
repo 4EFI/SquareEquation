@@ -113,6 +113,8 @@ int SolveLinearEquation (double a, double b, double *solution)
 
 int SolveSquareEquation (double a, double b, double c, double *solutions)
 {
+    $funcsTree
+
     //{ ASSERT
     assert (isfinite (a) != 0);
     assert (isfinite (b) != 0);
@@ -138,7 +140,7 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
     double D = b*b - 4*a*c;
 
-    if (Debug) printf ("line %d: D = %lf\n", __LINE__, D);
+    LOG ("D = %lf", D);
 
     if (D < 0)
     {
@@ -174,6 +176,8 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
 bool CompareNumbers (double x, double y, double accuracy)
 {
+    $funcsTree
+
     FLOG ("x = %lf, y = %lf, accuracy = %lf", x, y, accuracy);
 
     //SquareEquationLib.h:176:CompareNumbers(): x = 1.05, y = 1.05001, accuracy = 0.00001
