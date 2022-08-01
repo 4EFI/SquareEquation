@@ -19,6 +19,7 @@
 #include <algorithm>
 
 #include "Input.h"
+#include "LOG.h"
 
 using std::isfinite;
 
@@ -158,8 +159,10 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
     }
     else
     {
-        solutions[0] = ( -b - sqrt(D) ) / (2*a);
-        solutions[1] = ( -b + sqrt(D) ) / (2*a);
+        double sqrtD = sqrt (D);
+
+        solutions[0] = ( -b - sqrtD ) / (2*a);
+        solutions[1] = ( -b + sqrtD ) / (2*a);
 
         return 2;
     }
@@ -171,11 +174,19 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
 bool CompareNumbers (double x, double y, double accuracy)
 {
+    FLOG ("x = %lf, y = %lf, accuracy = %lf", x, y, accuracy);
+
+    //SquareEquationLib.h:176:CompareNumbers(): x = 1.05, y = 1.05001, accuracy = 0.00001
+    //
+
     //{ ASSERT
     assert (isfinite (x)        != 0);
     assert (isfinite (y)        != 0);
     assert (isfinite (accuracy) != 0);
     //}
+
+    //fprintf ("%s:%d:%s():", __FILE__, __LINE__);
+    //fprintf (file, "%d %d", a, b);
 
     return ( fabs (x - y) < accuracy );
 }
