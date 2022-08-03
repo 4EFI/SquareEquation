@@ -1,8 +1,8 @@
 #include "Config.h"
 
 #include "SquareEquationLib.h"
-#include "OptionsCmdLine.h"
-#include "LOG.h"
+#include "OptionsCmdLine/OptionsCmdLine.h"
+#include "LOG/LOG.h"
 
 //-----------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ int main (int argc, const char *argv[])
 
     EnterCoefficient (&a, &b, &c);
 
-    $funcsTree
+    $setFuncsTree
 
     int numSolutions = SolveSquareEquation (a, b, c, solutions);
 
