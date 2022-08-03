@@ -5,7 +5,9 @@
 #include <assert.h>
 #include <algorithm>
 
-#include "OptionsCmdLine.h"
+#include "../OptionsCmdLine.h"
+
+//-----------------------------------------------------------------------------
 
 int ProcessCommandLine (int argc,       const char*     argv[],
                         int numOptions, const Option options[])

@@ -67,14 +67,11 @@ void PutsSpaces (FILE* file, int numSpaces);
 #define FLOG(str, ...)                                      \
     _LOG (LogFile, __FILE__, __LINE__, str, ##__VA_ARGS__); \
 
-
-
 #define LOG(str, ...)                                      \
 {                                                          \
     FLOG (str, ##__VA_ARGS__);                             \
     _LOG (stderr, __FILE__, __LINE__, str, ##__VA_ARGS__); \
 }
-
 
 #define $$(code)  \
 {                 \
@@ -82,7 +79,7 @@ void PutsSpaces (FILE* file, int numSpaces);
     code;         \
 }
 
-#define $setFuncsTree                                   \
+#define $LOG_LVL_UP \
     FunctionsCallTree __funcsTree(__PRETTY_FUNCTION__);
 
 #else
@@ -92,7 +89,7 @@ void PutsSpaces (FILE* file, int numSpaces);
 
 #define $$(code) ;
 
-#define $setFuncsTree ;
+#define $LOG_LVL_UP ;
 
 #endif
 

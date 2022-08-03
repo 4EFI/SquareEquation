@@ -1,59 +1,21 @@
 End of Log!
 End of Log!
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+03            X:\Math\src\SquareEquationLib.cpp:115: x = 1.000000, y = 0.000000, accuracy = 0.000010
+03            X:\Math\src\SquareEquationLib.cpp:115: x = 1.000000, y = 0.000000, accuracy = 0.000010
+02        X:\Math\src\SquareEquationLib.cpp:77: D = 0.000000
+03            X:\Math\src\SquareEquationLib.cpp:115: x = 0.000000, y = 0.000000, accuracy = 0.000010
+01    main.cpp:85: 1
 End of Log!
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:143: D = 0.000000
-X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+01    main.cpp:85: 1
 End of Log!
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-X:\SquareEquationLib.h:143: D = 0.000000
-X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+01| main.cpp:85: 1
 End of Log!
-            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-        X:\SquareEquationLib.h:143: D = 0.000000
-            X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+01| main.cpp:85: 1
 End of Log!
- 3            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
- 3            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
- 3            X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+00|     main.cpp:85: 1
 End of Log!
- 3            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
- 3            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
- 2        X:\SquareEquationLib.h:143: D = 0.000000
- 3            X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
+00| main.cpp:83: 1
 End of Log!
-03            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-02        X:\SquareEquationLib.h:143: D = 0.000000
-03            X:\SquareEquationLib.h:181: x = 0.000000, y = 0.000000, accuracy = 0.000010
-End of Log!
-03            X:\SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            X:\SquareEquationLib.h:181: x = 3.000000, y = 0.000000, accuracy = 0.000010
-02        X:\SquareEquationLib.h:143: D = -8.000000
-End of Log!
-03            SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            SquareEquationLib.h:181: x = 3.000000, y = 0.000000, accuracy = 0.000010
-02        SquareEquationLib.h:143: D = -8.000000
-End of Log!
-03            SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            SquareEquationLib.h:181: x = 3.000000, y = 0.000000, accuracy = 0.000010
-02        SquareEquationLib.h:143: D = -8.000000
-End of Log!
-03            SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            SquareEquationLib.h:181: x = 3.000000, y = 0.000000, accuracy = 0.000010
-02        SquareEquationLib.h:143: D = -8.000000
-End of Log!
-03            LOG.cpp:45: x = 0.000000, y = -0.000000, accuracy = 0.000000
-03            LOG.cpp:45: x = 0.000000, y = -0.000000, accuracy = 0.000000
-02        LOG.cpp:45: D = 3.000000
-End of Log!
-03            SquareEquationLib.h:181: x = 1.000000, y = 0.000000, accuracy = 0.000010
-03            SquareEquationLib.h:181: x = 3.000000, y = 0.000000, accuracy = 0.000010
-02        SquareEquationLib.h:143: D = -8.000000
+01|     main.cpp:102: True conditions
+00| main.cpp:83: 1
 End of Log!

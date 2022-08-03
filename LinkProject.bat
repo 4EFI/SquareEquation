@@ -1,1 +1,1 @@
-g++ main.cpp X:\LOG\LOG.o X:\OptionsCmdLine\OptionsCmdLine.o
+g++ main.cpp X:\LOG\lib\LOG.o X:\OptionsCmdLine\lib\OptionsCmdLine.o X:\Math\lib\SquareEquationLib.o

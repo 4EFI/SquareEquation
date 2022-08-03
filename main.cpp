@@ -1,8 +1,16 @@
 #include "Config.h"
 
-#include "SquareEquationLib.h"
+#include <stdio.h>
+#include <assert.h>
+#include <windows.h>
+#include <algorithm>
+
+#include "Math/SquareEquationLib.h"
 #include "OptionsCmdLine/OptionsCmdLine.h"
 #include "LOG/LOG.h"
+#include "Input.h"
+
+using std::isfinite;
 
 //-----------------------------------------------------------------------------
 
@@ -70,9 +78,9 @@ int main (int argc, const char *argv[])
 
     EnterCoefficient (&a, &b, &c);
 
-    $setFuncsTree
-
     int numSolutions = SolveSquareEquation (a, b, c, solutions);
+
+    FLOG ("%d", numSolutions);
 
     PrintSolutions (numSolutions, solutions);
 
@@ -83,11 +91,15 @@ int main (int argc, const char *argv[])
 
 void EnterCoefficient (double *a, double *b, double *c)
 {
+    $LOG_LVL_UP
+
     //{ ASSERT
     assert (a != NULL);
     assert (b != NULL);
     assert (c != NULL);
     //}
+
+    FLOG ("True conditions");
 
     if (IsExplanation) printf ("Enter coefficients a b c...\n");
 

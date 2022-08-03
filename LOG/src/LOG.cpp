@@ -3,7 +3,7 @@
 #include <io.h>
 #include <stdarg.h>
 
-#include "LOG.h"
+#include "../LOG.h"
 
 int LogLvlTree = 0;
 int Debug      = true;
@@ -25,6 +25,8 @@ FunctionsCallTree::FunctionsCallTree (const char* _funcName):
 FunctionsCallTree::~FunctionsCallTree()
 {
     LogLvlTree--;
+
+    if (LogLvlTree < 0) LogLvlTree = 0;
 }
 
 //}
@@ -39,7 +41,7 @@ void _LOG (FILE* file, const char fileName[], const int line, const char str[], 
     {
         if (file == stderr) fprintf (file, ">>>");
 
-        fprintf    (file, "%02d", LogLvlTree);
+        fprintf    (file, "%02d| ", LogLvlTree);
         PutsSpaces (file, LogLvlTree * TabNumSym);
 
         LOG_INFO (file, fileName, line);
@@ -104,6 +106,8 @@ void SetDebug (bool isDebug)
 
 void PutsSpaces (FILE* file, int numSpaces)
 {
+    if(numSpaces < 0) numSpaces = 0;
+
     fprintf (file, "%*s", numSpaces, "");
 }
 

@@ -47,7 +47,7 @@ int SolveLinearEquation (double a, double b, double *solution)
 
 int SolveSquareEquation (double a, double b, double c, double *solutions)
 {
-    $setFuncsTree
+    $LOG_LVL_UP
 
     //{ ASSERT
     assert (isfinite (a) != 0);
@@ -110,7 +110,7 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
 bool CompareNumbers (double x, double y, double accuracy)
 {
-    $setFuncsTree
+    $LOG_LVL_UP
 
     FLOG ("x = %lf, y = %lf, accuracy = %lf", x, y, accuracy);
 
