@@ -1,1 +1,1 @@
-doxygen & chrome file://C:\Users\kvv20\OneDrive\Documents\SquareEquation\html\index.html
+doxygen & chrome file://C:\Users\kvv20\Documents\SquareEquation\html\index.html

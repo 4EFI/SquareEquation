@@ -19,3 +19,7 @@ End of Log!
 01|     main.cpp:102: True conditions
 00| main.cpp:83: 1
 End of Log!
+01|     main.cpp:102: True conditions
+00| main.cpp:83: 1
+End of Log!
+End of Log!
