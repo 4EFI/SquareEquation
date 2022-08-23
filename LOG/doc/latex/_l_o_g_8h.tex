@@ -1,0 +1,183 @@
+\hypertarget{_l_o_g_8h}{
+\section{C:/Users/kvv20/OneDrive/Документы/SquareEquation/LOG/LOG.h File Reference}
+\label{_l_o_g_8h}\index{C:/Users/kvv20/OneDrive/Документы/SquareEquation/LOG/LOG.h@{C:/Users/kvv20/OneDrive/Документы/SquareEquation/LOG/LOG.h}}
+}
+{\ttfamily \#include $<$stdio.h$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_functions_call_tree}{FunctionsCallTree}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_l_o_g_8h_ae55784119cece1f4cfaf26c6dca9d0a6}{
+\#define {\bfseries LOG\_\-INFO}(file, fileName, line)~fprintf (file, \char`\"{}\%s:\%d: \char`\"{}, fileName, line);}
+\label{_l_o_g_8h_ae55784119cece1f4cfaf26c6dca9d0a6}
+
+\item 
+\#define \hyperlink{_l_o_g_8h_ad426f4e1fbf5f0e539ca35dee92ec813}{FLOG}(str,...)~\_\-LOG (\hyperlink{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}{LogFile}, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-, str, \#\#\_\-\_\-VA\_\-ARGS\_\-\_\-); $\backslash$
+\begin{DoxyCompactList}\small\item\em Макрос для логирования в файл \item\end{DoxyCompactList}\item 
+\#define \hyperlink{_l_o_g_8h_a23e86ba0a2b90581f552cc3d0692be21}{LOG}(str,...)
+\begin{DoxyCompactList}\small\item\em Макрос для логирования и в файл, и в stderr. \item\end{DoxyCompactList}\item 
+\#define {\bfseries code}
+\item 
+\#define \hyperlink{_l_o_g_8h_a258fda5bca4d5bdd7132c2f5435972ee}{LOG\_\-LVL\_\-UP}~\hyperlink{struct_functions_call_tree}{FunctionsCallTree} \_\-\_\-funcsTree(\_\-\_\-PRETTY\_\-FUNCTION\_\-\_\-);
+\begin{DoxyCompactList}\small\item\em Макрос для увелечинея уровня логирования на 1. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FILE $\ast$ \hyperlink{_l_o_g_8h_a72e7e8b15826b9332175e661c52c92af}{OpenLogFile} (const char $\ast$path=\char`\"{}LOG.txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em Функция для открытия файла для логирования \item\end{DoxyCompactList}\item 
+\hypertarget{_l_o_g_8h_a9f164c97c11fd7a4dfe6ebaf06d88d8b}{
+void {\bfseries \_\-LOG} (FILE $\ast$file, const char fileName\mbox{[}$\,$\mbox{]}, const int line, const char str\mbox{[}$\,$\mbox{]},...)}
+\label{_l_o_g_8h_a9f164c97c11fd7a4dfe6ebaf06d88d8b}
+
+\item 
+\hypertarget{_l_o_g_8h_a655d4a32630a774287cd3c950b23e8ab}{
+bool {\bfseries IsTTY} (FILE $\ast$file)}
+\label{_l_o_g_8h_a655d4a32630a774287cd3c950b23e8ab}
+
+\item 
+\hypertarget{_l_o_g_8h_a06d24535a34f94d9bded7e3e7be1e826}{
+void {\bfseries FinishLog} ()}
+\label{_l_o_g_8h_a06d24535a34f94d9bded7e3e7be1e826}
+
+\item 
+\hypertarget{_l_o_g_8h_a59ecb5fdba44e272739801a14a517af3}{
+void {\bfseries SetDebug} (bool isDebug)}
+\label{_l_o_g_8h_a59ecb5fdba44e272739801a14a517af3}
+
+\item 
+\hypertarget{_l_o_g_8h_a4d28f112fd2e359ac8f1b8c298a9a726}{
+void {\bfseries PutsSpaces} (FILE $\ast$file, int numSpaces)}
+\label{_l_o_g_8h_a4d28f112fd2e359ac8f1b8c298a9a726}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_l_o_g_8h_a9195ee0b2ec8c2e4e65dd89bab8fbf7e}{
+const int {\bfseries MaxStr} = 100}
+\label{_l_o_g_8h_a9195ee0b2ec8c2e4e65dd89bab8fbf7e}
+
+\item 
+\hypertarget{_l_o_g_8h_af5c1686d6f1437133c0589405f28c360}{
+const int {\bfseries TabNumSym} = 4}
+\label{_l_o_g_8h_af5c1686d6f1437133c0589405f28c360}
+
+\item 
+\hypertarget{_l_o_g_8h_ad55082a75d13abc69097c09485f9463c}{
+int \hyperlink{_l_o_g_8h_ad55082a75d13abc69097c09485f9463c}{LogLvlTree}}
+\label{_l_o_g_8h_ad55082a75d13abc69097c09485f9463c}
+
+\begin{DoxyCompactList}\small\item\em Уровень логирования \item\end{DoxyCompactList}\item 
+\hypertarget{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}{
+FILE $\ast$ \hyperlink{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}{LogFile}}
+\label{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}
+
+\begin{DoxyCompactList}\small\item\em Файл, в который выводятся логи \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Define Documentation}
+\hypertarget{_l_o_g_8h_a814f6dab3b0678113d97a3684282934a}{
+\index{LOG.h@{LOG.h}!code@{code}}
+\index{code@{code}!LOG.h@{LOG.h}}
+\subsubsection[{code}]{\setlength{\rightskip}{0pt plus 5cm}\#define code}}
+\label{_l_o_g_8h_a814f6dab3b0678113d97a3684282934a}
+{\bfseries Value:}
+\begin{DoxyCode}
+)  \
+{                 \
+    FLOG (#code); \
+    code;         \
+}
+\end{DoxyCode}
+\hypertarget{_l_o_g_8h_ad426f4e1fbf5f0e539ca35dee92ec813}{
+\index{LOG.h@{LOG.h}!FLOG@{FLOG}}
+\index{FLOG@{FLOG}!LOG.h@{LOG.h}}
+\subsubsection[{FLOG}]{\setlength{\rightskip}{0pt plus 5cm}\#define FLOG(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~\_\-LOG ({\bf LogFile}, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-, str, \#\#\_\-\_\-VA\_\-ARGS\_\-\_\-); $\backslash$}}
+\label{_l_o_g_8h_ad426f4e1fbf5f0e539ca35dee92ec813}
+
+
+Макрос для логирования в файл 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Выводимая строка \\
+\hline
+{\em ...} & Аргументы передоваемые в строчку \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_o_g_8h_a23e86ba0a2b90581f552cc3d0692be21}{
+\index{LOG.h@{LOG.h}!LOG@{LOG}}
+\index{LOG@{LOG}!LOG.h@{LOG.h}}
+\subsubsection[{LOG}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}
+\label{_l_o_g_8h_a23e86ba0a2b90581f552cc3d0692be21}
+{\bfseries Value:}
+\begin{DoxyCode}
+{                                                          \
+    FLOG (str, ##__VA_ARGS__);                             \
+    _LOG (stderr, __FILE__, __LINE__, str, ##__VA_ARGS__); \
+}
+\end{DoxyCode}
+
+
+Макрос для логирования и в файл, и в stderr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Выводимая строка \\
+\hline
+{\em ...} & Аргументы передоваемые в строчку \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_o_g_8h_a258fda5bca4d5bdd7132c2f5435972ee}{
+\index{LOG.h@{LOG.h}!LOG\_\-LVL\_\-UP@{LOG\_\-LVL\_\-UP}}
+\index{LOG\_\-LVL\_\-UP@{LOG\_\-LVL\_\-UP}!LOG.h@{LOG.h}}
+\subsubsection[{LOG\_\-LVL\_\-UP}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-LVL\_\-UP~{\bf FunctionsCallTree} \_\-\_\-funcsTree(\_\-\_\-PRETTY\_\-FUNCTION\_\-\_\-);}}
+\label{_l_o_g_8h_a258fda5bca4d5bdd7132c2f5435972ee}
+
+
+Макрос для увелечинея уровня логирования на 1. 
+
+\begin{DoxyNote}{Note}
+При выходе из блока -\/ уровень логирования понижается на 1 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\hypertarget{_l_o_g_8h_a72e7e8b15826b9332175e661c52c92af}{
+\index{LOG.h@{LOG.h}!OpenLogFile@{OpenLogFile}}
+\index{OpenLogFile@{OpenLogFile}!LOG.h@{LOG.h}}
+\subsubsection[{OpenLogFile}]{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ OpenLogFile (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path = {\ttfamily \char`\"{}LOG.txt\char`\"{}}}
+\end{DoxyParamCaption}
+)}}
+\label{_l_o_g_8h_a72e7e8b15826b9332175e661c52c92af}
+
+
+Функция для открытия файла для логирования 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Путь к файлу для логирования\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LogFile Файл для логирования 
+\end{DoxyReturn}

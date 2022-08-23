@@ -1,0 +1,103 @@
+\hypertarget{_square_equation_lib_8h}{}\doxysection{X\+:/\+Math/\+Square\+Equation\+Lib.h File Reference}
+\label{_square_equation_lib_8h}\index{X:/Math/SquareEquationLib.h@{X:/Math/SquareEquationLib.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_square_equation_lib_8h_ad92ed9289f31b7e4f24e70f5537c08ad}{Solve\+Linear\+Equation}} (double a, double b, double $\ast$solution)
+\begin{DoxyCompactList}\small\item\em Функция для решения линейного уравнения \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_square_equation_lib_8h_a7f8a474647b85252982ff576f9546ad8}{Solve\+Square\+Equation}} (double a, double b, double c, double $\ast$solutions)
+\begin{DoxyCompactList}\small\item\em Функция для решения квадратного уравнения \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_square_equation_lib_8h_a5de4498d1cecb5b1c4efa303a18d818c}{Compare\+Numbers}} (double x, double y, double accuracy=\mbox{\hyperlink{_square_equation_lib_8h_a4576483e774150d83a8d995eee8e2591}{Accuracy}})
+\begin{DoxyCompactList}\small\item\em Функция для сравнения переменных типа double с погрешностью \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_square_equation_lib_8h_a6cff718ef6bce746aa5e100036226625}\label{_square_equation_lib_8h_a6cff718ef6bce746aa5e100036226625}} 
+const int {\bfseries Infinity} = 9999999
+\begin{DoxyCompactList}\small\item\em Константа бесконечности \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_square_equation_lib_8h_a4576483e774150d83a8d995eee8e2591}\label{_square_equation_lib_8h_a4576483e774150d83a8d995eee8e2591}} 
+const double {\bfseries Accuracy} = 10e-\/6
+\begin{DoxyCompactList}\small\item\em Константа точности \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_square_equation_lib_8h_a5de4498d1cecb5b1c4efa303a18d818c}\label{_square_equation_lib_8h_a5de4498d1cecb5b1c4efa303a18d818c}} 
+\index{SquareEquationLib.h@{SquareEquationLib.h}!CompareNumbers@{CompareNumbers}}
+\index{CompareNumbers@{CompareNumbers}!SquareEquationLib.h@{SquareEquationLib.h}}
+\doxysubsubsection{\texorpdfstring{CompareNumbers()}{CompareNumbers()}}
+{\footnotesize\ttfamily bool Compare\+Numbers (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{accuracy = {\ttfamily \mbox{\hyperlink{_square_equation_lib_8h_a4576483e774150d83a8d995eee8e2591}{Accuracy}}} }\end{DoxyParamCaption})}
+
+
+
+Функция для сравнения переменных типа double с погрешностью 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & первое число \\
+\hline
+{\em y} & второе число \\
+\hline
+{\em accuracy} & погрешность сравнения, по умолчанию равная Accurancy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, если два числа равны с учетом погрешности, иначе False 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_square_equation_lib_8h_ad92ed9289f31b7e4f24e70f5537c08ad}\label{_square_equation_lib_8h_ad92ed9289f31b7e4f24e70f5537c08ad}} 
+\index{SquareEquationLib.h@{SquareEquationLib.h}!SolveLinearEquation@{SolveLinearEquation}}
+\index{SolveLinearEquation@{SolveLinearEquation}!SquareEquationLib.h@{SquareEquationLib.h}}
+\doxysubsubsection{\texorpdfstring{SolveLinearEquation()}{SolveLinearEquation()}}
+{\footnotesize\ttfamily int Solve\+Linear\+Equation (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double $\ast$}]{solution }\end{DoxyParamCaption})}
+
+
+
+Функция для решения линейного уравнения 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & первый коэффицент линейного уравнения \\
+\hline
+{\em b} & второй коэффицент линейного уравнения \\
+\hline
+{\em $\ast$solution} & указатель решения линейного уравнений\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает количество решений уравнения
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Функция принимает коэффиценты линейного уравнения типа a$\ast$x + b = 0
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Эта функция изменяет элементы передаваемой переменной для записи решения 
+\end{DoxyWarning}
+\mbox{\Hypertarget{_square_equation_lib_8h_a7f8a474647b85252982ff576f9546ad8}\label{_square_equation_lib_8h_a7f8a474647b85252982ff576f9546ad8}} 
+\index{SquareEquationLib.h@{SquareEquationLib.h}!SolveSquareEquation@{SolveSquareEquation}}
+\index{SolveSquareEquation@{SolveSquareEquation}!SquareEquationLib.h@{SquareEquationLib.h}}
+\doxysubsubsection{\texorpdfstring{SolveSquareEquation()}{SolveSquareEquation()}}
+{\footnotesize\ttfamily int Solve\+Square\+Equation (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{solutions }\end{DoxyParamCaption})}
+
+
+
+Функция для решения квадратного уравнения 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & первый коэффицент квадратного уравнения \\
+\hline
+{\em b} & второй коэффицент квадратного уравнения \\
+\hline
+{\em c} & третий коэффицент квадратного уравнения \\
+\hline
+{\em $\ast$solutions} & массив решений квадратного уравнений\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает количество решений уравнения
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Функция принимает коэффиценты квадратного уравнения типа a$\ast$x$^\wedge$2 + b$\ast$x + c = 0, выводит в передаваемый массивв
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Эта функция изменяет элементы передаваемого массива 
+\end{DoxyWarning}

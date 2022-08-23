@@ -2,11 +2,10 @@
 #define SQUARE_EQUATION_H
 
 //{----------------------------------------------------------------------------
-/// @file SquareEquation.cpp
+/// @file SquareEquationLib.h
 /// @mainpage
 /// Files:
-/// - @ref SquareEquation.h
-/// - @ref Input.h
+/// - @ref SquareEquationLib.h
 //}----------------------------------------------------------------------------
 
 /// \brief Константа бесконечности

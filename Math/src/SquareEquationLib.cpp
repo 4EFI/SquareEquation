@@ -37,6 +37,16 @@ int SolveLinearEquation (double a, double b, double *solution)
     {
         *solution = (-b) / a;
 
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wfloat-equal"
+
+        if (*solution == -0)
+        {
+            *solution = 0;
+        }
+
+        #pragma GCC diagnostic pop
+
         return 1;
     }
 

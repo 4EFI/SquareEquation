@@ -6,7 +6,6 @@
 #include "../LOG.h"
 
 int LogLvlTree = 0;
-int Debug      = true;
 
 FILE* LogFile = OpenLogFile();
 
@@ -37,17 +36,14 @@ void _LOG (FILE* file, const char fileName[], const int line, const char str[], 
     va_list arg = {};
     va_start (arg, str);
 
-    if (Debug)
-    {
-        if (file == stderr) fprintf (file, ">>>");
+    if (file == stderr) fprintf (file, ">>>");
 
-        fprintf    (file, "%02d| ", LogLvlTree);
-        PutsSpaces (file, LogLvlTree * TabNumSym);
+    fprintf    (file, "%02d| ", LogLvlTree);
+    PutsSpaces (file, LogLvlTree * TabNumSym);
 
-        LOG_INFO (file, fileName, line);
-        vfprintf (file, str, arg);
-        fputc    ('\n', file);
-    }
+    LOG_INFO (file, fileName, line);
+    vfprintf (file, str, arg);
+    fputc    ('\n', file);
 
     va_end (arg);
 }
