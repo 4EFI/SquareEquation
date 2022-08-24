@@ -93,13 +93,6 @@ void FinishLog()
 
 //-----------------------------------------------------------------------------
 
-void SetDebug (bool isDebug)
-{
-    Debug = isDebug;
-}
-
-//-----------------------------------------------------------------------------
-
 void PutsSpaces (FILE* file, int numSpaces)
 {
     if(numSpaces < 0) numSpaces = 0;

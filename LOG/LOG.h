@@ -1,14 +1,21 @@
 #ifndef LOG_H
 #define LOG_H
 
-
 //{----------------------------------------------------------------------------
 /// @file Log.h
+///
+/// \brief „тобы убрать логирование, нужно объ€вить макрос NLOG (#define NLOG)
+///
+/// \brief “акже в библиотеке есть макрос $$(code) (#define $$(code)).
+///        ƒанный макрос логирует тот код и выполн€ет его, который передаетс€ ему
+///        в виде аргумента.
+///
+/// \brief ћакрос $LOG_LVL_UP (#define $LOG_LVL_UP) повышает уровень логировани€ на 1,
+///        пока не выйдет из соответствующего блока, в этом случае уровень блока понижаетс€ на 1.
+///
 /// @mainpage
 /// Files:
 /// - @ref Log.h
-///
-/// „тобы убрать логирование, нужно объ€вить макрос NLOG
 //}----------------------------------------------------------------------------
 
 #include <stdio.h>
@@ -58,15 +65,12 @@ bool IsTTY (FILE* file);
 
 void FinishLog();
 
-void SetDebug (bool isDebug);
-
 void PutsSpaces (FILE* file, int numSpaces);
 
 //-----------------------------------------------------------------------------
 
 #define LOG_INFO(file, fileName, line) \
     fprintf (file, "%s:%d: ", fileName, line);
-
 
 /*
 #define _LOG(file, str, ...)                         \
@@ -129,7 +133,7 @@ void PutsSpaces (FILE* file, int numSpaces);
 #define FLOG(str, ...) ;
 #define  LOG(str, ...) ;
 
-#define $$(code) ;
+#define $$(code, ...) code ##__VA_ARGS__
 
 #define $LOG_LVL_UP ;
 

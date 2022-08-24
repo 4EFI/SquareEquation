@@ -30,27 +30,18 @@ int SolveLinearEquation (double a, double b, double *solution)
         }
         else
         {
-            return 0;
+$$          (return 0;)
         }
     }
-    else
+
+    *solution = (-b) / a;
+
+    if ( CompareNumbers (*solution, 0) )
     {
-        *solution = (-b) / a;
-
-        #pragma GCC diagnostic push
-        #pragma GCC diagnostic ignored "-Wfloat-equal"
-
-        if (*solution == -0)
-        {
             *solution = 0;
-        }
-
-        #pragma GCC diagnostic pop
-
-        return 1;
     }
 
-    return -1;
+    return 1;
 }
 
 //-----------------------------------------------------------------------------
@@ -72,6 +63,7 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
         return SolveLinearEquation (b, c, solutions);
     }
 
+    // ax^2 + bx = 0
     if ( CompareNumbers(c, 0) )
     {
         solutions[0] = 0;
@@ -90,10 +82,12 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
     {
         return 0;
     }
-    else if ( CompareNumbers(D, 0) )
+
+    if ( CompareNumbers(D, 0) )
     {
         solutions[0] = -b / (2*a);
 
+	//
         #pragma GCC diagnostic push
         #pragma GCC diagnostic ignored "-Wfloat-equal"
 
@@ -103,6 +97,7 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
 
         return 1;
     }
+//
     else
     {
         double sqrtD = sqrt (D);

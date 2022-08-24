@@ -7,9 +7,9 @@ OptionsCmdLine_cpp    = OptionsCmdLine\src\OptionsCmdLine.cpp
 SquareEquationLib_cpp = Math\src\SquareEquationLib.cpp 
 
 #־בתוךעםûו פאיכû
-Log_o               = LOG\lib\Log.o
-OptionsCmdLine_o    = OptionsCmdLine\lib\OptionsCmdLine.o
-SquareEquationLib_o = Math\lib\SquareEquationLib.o
+Log_o                 = LOG\lib\Log.o
+OptionsCmdLine_o      = OptionsCmdLine\lib\OptionsCmdLine.o
+SquareEquationLib_o   = Math\lib\SquareEquationLib.o
 
 all: SquareEquation
 

@@ -36,7 +36,9 @@ int ProcessCommandLine (int argc,       const char*     argv[],
         }
         else
         {
-            int numSkips = options[optionNum].func(argc, argv, numArg);
+	    // arg_to_skip
+	    // 
+            int numSkips = options[optionNum].func (argc, argv, numArg);
 
             if (numSkips < 0) return numSkips;
 

@@ -26,3 +26,33 @@ End of Log!
 01|     main.cpp:102: True conditions
 00| main.cpp:83: 1
 End of Log!
+End of Log!
+End of Log!
+End of Log!
+End of Log!
+01|     main.cpp:105: True conditions
+End of Log!
+01|     main.cpp:105: True conditions
+00| main.cpp:86: 0
+End of Log!
+01|     main.cpp:105: True conditions
+02|         Math\src\SquareEquationLib.cpp:120: x = 1,000000, y = 0,000000, accuracy = 0,000010
+02|         Math\src\SquareEquationLib.cpp:120: x = 1,000000, y = 0,000000, accuracy = 0,000010
+01|     Math\src\SquareEquationLib.cpp:79: D = -3,000000
+00| main.cpp:86: 0
+End of Log!
+01|     main.cpp:105: True conditions
+End of Log!
+01|     main.cpp:105: True conditions
+02|         Math\src\SquareEquationLib.cpp:120: x = 0,000000, y = 0,000000, accuracy = 0,000010
+02|         Math\src\SquareEquationLib.cpp:120: x = 1,000000, y = 0,000000, accuracy = 0,000010
+02|         Math\src\SquareEquationLib.cpp:120: x = -1,000000, y = 0,000000, accuracy = 0,000010
+00| main.cpp:86: 1
+End of Log!
+01|     main.cpp:105: True conditions
+02|         Math\src\SquareEquationLib.cpp:120: x = 0,000000, y = 0,000000, accuracy = 0,000010
+02|         Math\src\SquareEquationLib.cpp:120: x = 0,000000, y = 0,000000, accuracy = 0,000010
+02|         Math\src\SquareEquationLib.cpp:120: x = 1,000000, y = 0,000000, accuracy = 0,000010
+01|     Math\src\SquareEquationLib.cpp:33: return 0;
+00| main.cpp:86: 0
+End of Log!

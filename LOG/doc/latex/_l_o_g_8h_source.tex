@@ -4,111 +4,116 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef LOG\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define LOG\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{12 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{keyword}{const} \textcolor{keywordtype}{int} MaxStr    = 100;}
-\DoxyCodeLine{19 \textcolor{keyword}{const} \textcolor{keywordtype}{int} TabNumSym = 4;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{22 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{_l_o_g_8h_ad55082a75d13abc69097c09485f9463c}{LogLvlTree}};}
+\DoxyCodeLine{4 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{20 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdio.h>}}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{30 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{24 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{const} \textcolor{keywordtype}{int} MaxStr    = 100;}
+\DoxyCodeLine{27 \textcolor{keyword}{const} \textcolor{keywordtype}{int} TabNumSym = 4;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{_l_o_g_8h_ad55082a75d13abc69097c09485f9463c}{LogLvlTree}};}
 \DoxyCodeLine{31 }
-\DoxyCodeLine{32 FILE* \mbox{\hyperlink{_l_o_g_8h_aaa32d50e825db952abeb001b18384e05}{OpenLogFile}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char}* path = \textcolor{stringliteral}{"{}LOG.txt"{}});}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{35 \textcolor{keyword}{extern} FILE* \mbox{\hyperlink{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}{LogFile}};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_functions_call_tree}{FunctionsCallTree}}}
-\DoxyCodeLine{40 \{}
-\DoxyCodeLine{41 \textcolor{keyword}{public}:}
-\DoxyCodeLine{42     \mbox{\hyperlink{struct_functions_call_tree}{FunctionsCallTree}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char}* \_funcName);}
-\DoxyCodeLine{43    \mbox{\hyperlink{struct_functions_call_tree}{\string~FunctionsCallTree}}();}
+\DoxyCodeLine{32 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{38 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 FILE* \mbox{\hyperlink{_l_o_g_8h_aaa32d50e825db952abeb001b18384e05}{OpenLogFile}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char}* path = \textcolor{stringliteral}{"{}LOG.txt"{}});}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43 \textcolor{keyword}{extern} FILE* \mbox{\hyperlink{_l_o_g_8h_a927459878a7530ff5847e74e8ece5765}{LogFile}};}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{keyword}{private}:}
-\DoxyCodeLine{46     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* funcName = NULL;}
-\DoxyCodeLine{47 \};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{keywordtype}{void} \_LOG (FILE* file, \textcolor{keyword}{const} \textcolor{keywordtype}{char} fileName[], \textcolor{keyword}{const} \textcolor{keywordtype}{int} line, \textcolor{keyword}{const} \textcolor{keywordtype}{char} str[], ...);}
+\DoxyCodeLine{45 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{struct }FunctionsCallTree}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49 \textcolor{keyword}{public}:}
+\DoxyCodeLine{50     FunctionsCallTree (\textcolor{keyword}{const} \textcolor{keywordtype}{char}* \_funcName);}
+\DoxyCodeLine{51    \string~FunctionsCallTree();}
 \DoxyCodeLine{52 }
-\DoxyCodeLine{53 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{55 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{53 \textcolor{keyword}{private}:}
+\DoxyCodeLine{54     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* funcName = NULL;}
+\DoxyCodeLine{55 \};}
 \DoxyCodeLine{56 }
-\DoxyCodeLine{57 \textcolor{keywordtype}{bool} IsTTY (FILE* file);}
+\DoxyCodeLine{57 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{keywordtype}{void} FinishLog();}
+\DoxyCodeLine{59 \textcolor{keywordtype}{void} \_LOG (FILE* file, \textcolor{keyword}{const} \textcolor{keywordtype}{char} fileName[], \textcolor{keyword}{const} \textcolor{keywordtype}{int} line, \textcolor{keyword}{const} \textcolor{keywordtype}{char} str[], ...);}
 \DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{keywordtype}{void} SetDebug (\textcolor{keywordtype}{bool} isDebug);}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{keywordtype}{void} PutsSpaces (FILE* file, \textcolor{keywordtype}{int} numSpaces);}
+\DoxyCodeLine{61 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{63 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{64 }
-\DoxyCodeLine{65 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{65 \textcolor{keywordtype}{bool} IsTTY (FILE* file);}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{67 \textcolor{preprocessor}{\#define LOG\_INFO(file, fileName, line) \(\backslash\)}}
-\DoxyCodeLine{68 \textcolor{preprocessor}{    fprintf (file, "{}\%s:\%d: "{}}, fileName, line);}
-\DoxyCodeLine{69 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} FinishLog();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keywordtype}{void} SetDebug (\textcolor{keywordtype}{bool} isDebug);}
 \DoxyCodeLine{70 }
-\DoxyCodeLine{71 \textcolor{comment}{/*}}
-\DoxyCodeLine{72 \textcolor{comment}{\#define \_LOG(file, str, ...)                         \(\backslash\)}}
-\DoxyCodeLine{73 \textcolor{comment}{\{                                                    \(\backslash\)}}
-\DoxyCodeLine{74 \textcolor{comment}{    if (Debug)                                       \(\backslash\)}}
-\DoxyCodeLine{75 \textcolor{comment}{    \{                                                \(\backslash\)}}
-\DoxyCodeLine{76 \textcolor{comment}{        if ((file) == stderr) fprintf (file, "{}>>>"{}); \(\backslash\)}}
-\DoxyCodeLine{77 \textcolor{comment}{        fprintf    (file, "{}\%02d"{}, LogLvlTree);       \(\backslash\)}}
-\DoxyCodeLine{78 \textcolor{comment}{        PutsSpaces (file, LogLvlTree * TabNumSym);   \(\backslash\)}}
-\DoxyCodeLine{79 \textcolor{comment}{                                                     \(\backslash\)}}
-\DoxyCodeLine{80 \textcolor{comment}{        LOG\_INFO (file);                             \(\backslash\)}}
-\DoxyCodeLine{81 \textcolor{comment}{        fprintf  (file, str, \#\#\_\_VA\_ARGS\_\_);         \(\backslash\)}}
-\DoxyCodeLine{82 \textcolor{comment}{        fputc    ('\(\backslash\)n', file);                       \(\backslash\)}}
-\DoxyCodeLine{83 \textcolor{comment}{    \}                                                \(\backslash\)}}
-\DoxyCodeLine{84 \textcolor{comment}{\}}}
-\DoxyCodeLine{85 \textcolor{comment}{*/}}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87 \textcolor{preprocessor}{\#ifndef NLOG}}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{89 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{91 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \textcolor{preprocessor}{\#define FLOG(str, ...)                                      \(\backslash\)}}
-\DoxyCodeLine{94 \textcolor{preprocessor}{    \_LOG (LogFile, \_\_FILE\_\_, \_\_LINE\_\_, str, \#\#\_\_VA\_ARGS\_\_); \(\backslash\)}}
-\DoxyCodeLine{95 \textcolor{preprocessor}{}}
-\DoxyCodeLine{96 \textcolor{preprocessor}{\#define LOG(str, ...)                                      \(\backslash\)}}
-\DoxyCodeLine{97 \textcolor{preprocessor}{\{                                                          \(\backslash\)}}
-\DoxyCodeLine{98 \textcolor{preprocessor}{    FLOG (str, \#\#\_\_VA\_ARGS\_\_);                             \(\backslash\)}}
-\DoxyCodeLine{99 \textcolor{preprocessor}{    \_LOG (stderr, \_\_FILE\_\_, \_\_LINE\_\_, str, \#\#\_\_VA\_ARGS\_\_); \(\backslash\)}}
-\DoxyCodeLine{100 \textcolor{preprocessor}{\}}}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102 \textcolor{preprocessor}{\#define \$\$(code)  \(\backslash\)}}
-\DoxyCodeLine{103 \textcolor{preprocessor}{\{                 \(\backslash\)}}
-\DoxyCodeLine{104 \textcolor{preprocessor}{    FLOG (\#code); \(\backslash\)}}
-\DoxyCodeLine{105 \textcolor{preprocessor}{    code;         \(\backslash\)}}
-\DoxyCodeLine{106 \textcolor{preprocessor}{\}}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \textcolor{preprocessor}{\#define \$LOG\_LVL\_UP \(\backslash\)}}
-\DoxyCodeLine{109 \textcolor{preprocessor}{    FunctionsCallTree \_\_funcsTree(\_\_PRETTY\_FUNCTION\_\_);}}
-\DoxyCodeLine{110 }
-\DoxyCodeLine{111 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113 \textcolor{preprocessor}{\#define FLOG(str, ...) ;}}
-\DoxyCodeLine{114 \textcolor{preprocessor}{\#define  LOG(str, ...) ;}}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116 \textcolor{preprocessor}{\#define \$\$(code) ;}}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{118 \textcolor{preprocessor}{\#define \$LOG\_LVL\_UP ;}}
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} PutsSpaces (FILE* file, \textcolor{keywordtype}{int} numSpaces);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define LOG\_INFO(file, fileName, line) \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    fprintf (file, "{}\%s:\%d: "{}}, fileName, line);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{comment}{/*}}
+\DoxyCodeLine{80 \textcolor{comment}{\#define \_LOG(file, str, ...)                         \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{comment}{\{                                                    \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{comment}{    if (Debug)                                       \(\backslash\)}}
+\DoxyCodeLine{83 \textcolor{comment}{    \{                                                \(\backslash\)}}
+\DoxyCodeLine{84 \textcolor{comment}{        if ((file) == stderr) fprintf (file, "{}>>>"{}); \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{comment}{        fprintf    (file, "{}\%02d"{}, LogLvlTree);       \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{comment}{        PutsSpaces (file, LogLvlTree * TabNumSym);   \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{comment}{                                                     \(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{comment}{        LOG\_INFO (file);                             \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{comment}{        fprintf  (file, str, \#\#\_\_VA\_ARGS\_\_);         \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{comment}{        fputc    ('\(\backslash\)n', file);                       \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{comment}{    \}                                                \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{comment}{\}}}
+\DoxyCodeLine{93 \textcolor{comment}{*/}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#ifndef NLOG}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{102 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define FLOG(str, ...)                                      \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{    \_LOG (LogFile, \_\_FILE\_\_, \_\_LINE\_\_, str, \#\#\_\_VA\_ARGS\_\_); \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{}}
+\DoxyCodeLine{107 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{112 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define LOG(str, ...)                                      \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\{                                                          \(\backslash\)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{    FLOG (str, \#\#\_\_VA\_ARGS\_\_);                             \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{    \_LOG (stderr, \_\_FILE\_\_, \_\_LINE\_\_, str, \#\#\_\_VA\_ARGS\_\_); \(\backslash\)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\}}}
 \DoxyCodeLine{119 }
-\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{121 }
-\DoxyCodeLine{122 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define \$\$(code)  \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\{                 \(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{    FLOG (\#code); \(\backslash\)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{    code;         \(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{130 \textcolor{comment}{}\textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define \$LOG\_LVL\_UP \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{    FunctionsCallTree \_\_funcsTree(\_\_PRETTY\_FUNCTION\_\_);}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define FLOG(str, ...) ;}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define  LOG(str, ...) ;}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define \$\$(code) ;}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define \$LOG\_LVL\_UP ;}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

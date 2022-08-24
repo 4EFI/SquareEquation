@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <windows.h>
 #include <algorithm>
+#include <locale.h>
 
 #include "Math/SquareEquationLib.h"
 #include "OptionsCmdLine/OptionsCmdLine.h"
@@ -37,7 +38,7 @@ void EnterCoefficient (double *a, double *b, double *c);
 
 void PrintSolutions (int numSolutions, double *solutions);
 
-int Help         (int /*argc*/, const char* /*argv*/[], int /*pos*/);
+int Help         (int /*argc*/, const char* /*argv*/[], int   pos  );
 int RunUnitTests (int   argc,   const char*   argv  [], int   pos  );
 int Woooo        (int /*argc*/, const char* /*argv*/[], int /*pos*/);
 int Meow         (int /*argc*/, const char* /*argv*/[], int /*pos*/);
@@ -61,13 +62,16 @@ const Option Options[] = {{"-h",      Help},
 
 int main (int argc, const char *argv[])
 {
+    setlocale (LC_ALL, "");
+
     if (IsExplanation)
     {
-        printf ("This program solves square equations. "
-                "It does not solve round equations, sorry :(((\n");
+    printf ("Данная программа решает квадратные уравнения. "
+            "Она не решает круглые уравнения, сори:(((\n");
     }
 
-    int numOption = ProcessCommandLine (argc, argv,
+    int numOption = ProcessCommandLine (argc, 
+					argv,
                                         sizeof (Options) / sizeof (Option),
                                         Options);
     if (numOption < 0) return -numOption;
@@ -114,7 +118,7 @@ void EnterCoefficient (double *a, double *b, double *c)
 
         ClearBuffer();
 
-        if (IsExplanation) printf ("Not correct input, repeat please...\n");
+        if (IsExplanation) printf ("Некорректный ввод, повторите попытку...\n");
     }
 }
 
@@ -128,21 +132,21 @@ void PrintSolutions (int numSolutions, double *solutions)
 
     if (numSolutions == 0)
     {
-        if (IsExplanation) printf ("No solutions\n");
+        if (IsExplanation) printf ("Нет решений\n");
         else               printf ("0");
     }
     else if (numSolutions == Infinity)
     {
-        if (IsExplanation) printf ("An infinite number of solutions\n");
+        if (IsExplanation) printf ("Бесконечное количество решений\n");
         else               printf ("-1\n");
     }
     else
     {
-        printf ("Number of solutions = %d\n", numSolutions);
+        printf ("Количество решений = %d\n", numSolutions);
 
         for (int i = 0; i < numSolutions; i++)
         {
-            printf ("Solution %d = %lf\n", i + 1, solutions[i]);
+            printf ("Решения %d = %lf\n", i + 1, solutions[i]);
         }
     }
 }
@@ -151,15 +155,16 @@ void PrintSolutions (int numSolutions, double *solutions)
 //{ Option Functions Implementation
 //-----------------------------------------------------------------------------
 
-int Help (int /*argc*/, const char* /*argv*/[], int /*pos*/)
+int Help (int /*argc*/, const char* /*argv*/[], int pos)
 {
-    printf ("\nDocumentation located in local path were opened: html/index.html\n\n");
+    printf ("1) -t или --test Запускает юнит тесты из файла. За название файла берется"
+            " аргумент после одной из данных опций. Если поставить '.', то юнит тесты"
+            " будут браться из дефолтного файла, также юнит будут браться из дефолтного"
+            " файла, если данная опция самая последняя.\n"
+            "2) -woooo Вууууууууууууууу\n"
+            "3) -meow Мяу\n");
 
-    char option[] = "chrome file://html\\index.html";
-
-    system (option);
-
-    return 0;
+    return -pos;
 }
 
 //-----------------------------------------------------------------------------
@@ -171,13 +176,13 @@ int RunUnitTests(int argc, const char* argv[], int pos)
     FILE *file = NULL;
 
     //The last option in the list
-    if (pos == argc - 1)
+    if ( pos == argc - 1 || (pos < (argc - 1) && strcmp(argv[pos + 1], ".") == 0) )
     {
         file = fopen (pathDefault, "r");
 
         if (!file)
         {
-            printf ("Default file does not exist!\n");
+            printf ("Дефолт файл не существует!\n");
 
             return 0;
         }
@@ -189,7 +194,7 @@ int RunUnitTests(int argc, const char* argv[], int pos)
 
     if (!file)
     {
-        printf ("An error occurred while opening the file!\n");
+        printf ("Произошла ошибка при открытии файла!\n");
 
         //The number of skipped arguments
         return 1;
@@ -202,11 +207,12 @@ int RunUnitTests(int argc, const char* argv[], int pos)
 
     for (int nowUnitTest = 0; ; nowUnitTest++)
     {
+	//  necessary function 
         int numRead = fscanf (file, "%lf %lf %lf", &a, &b, &c);
 
         if (numRead == EOF)
         {
-            printf ("Tests completed!\n");
+            printf ("Тесты пройдены!\n");
 
             break;
         }
@@ -278,7 +284,7 @@ bool RunOneUnitTest (double a,                double b, double c,
 
     if (numSolutions != testNumSolutions)
     {
-        printf ("%d: The number of solutions should be %d; program solution is %d\n",
+        printf ("%d: Количество корней должно быть %d; количество корней программы %d\n",
                 testNumber, testNumSolutions, numSolutions);
 
         return 0;
@@ -293,7 +299,7 @@ bool RunOneUnitTest (double a,                double b, double c,
     {
         if ( !CompareNumbers (testSolutions[i], solutions[i]) )
         {
-            printf ("%d: Solution should be %lf; program solution is %lf\n",
+            printf ("%d: Решение должно быть %lf; Программное решение %lf\n",
                     testNumber, testSolutions[i], solutions[i]);
 
             return 0;
@@ -301,7 +307,7 @@ bool RunOneUnitTest (double a,                double b, double c,
     }
 
     testPassed:
-    printf ("Unit test number %d have passed!\n", testNumber);
+    printf ("Юнит тест %d успешно пройден!\n", testNumber);
 
     return 1;
 }
