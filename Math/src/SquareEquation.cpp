@@ -8,7 +8,7 @@
 #define NLOG
 
 #include "../../LOG/LOG.h"
-#include "../SquareEquationLib.h"
+#include "../SquareEquation.h"
 
 using std::isfinite;
 

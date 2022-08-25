@@ -1,5 +1,11 @@
+#include "../include/Config.h"
+
 #include <stdio.h>
-#inlcude "LOG/Log.h"
+#include <assert.h>
+
+#include "../LOG/LOG.h"
+#include "../include/Input.h"
+#include "../Math/SquareEquationLib.h"
 
 //-----------------------------------------------------------------------------
 

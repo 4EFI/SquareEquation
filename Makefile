@@ -1,29 +1,45 @@
 CC     = g++
-CFLAGS = -Wall -Wextra 
+CFLAGS = -Wall -Wextra
 
 #Исходные файлы
-Log_cpp               = LOG\src\Log.cpp
-OptionsCmdLine_cpp    = OptionsCmdLine\src\OptionsCmdLine.cpp
-SquareEquationLib_cpp = Math\src\SquareEquationLib.cpp 
+Main_cpp              = main.cpp
 
 #Объектные файлы
-Log_o                 = LOG\lib\Log.o
-OptionsCmdLine_o      = OptionsCmdLine\lib\OptionsCmdLine.o
-SquareEquationLib_o   = Math\lib\SquareEquationLib.o
+Main_o                = main.o
+
+#Путь к модулям
+Log_Folder            = LOG
+OptsCmdLine_Folder    = OptionsCmdLine
+SquareEquation_Folder = Math
 
 all: SquareEquation
 
-SquareEquation: main.o $(Log_o) $(OptionsCmdLine_o) $(SquareEquationLib_o)      
-	$(CC) $(CFLAGS) main.o $(Log_o) $(OptionsCmdLine_o) $(SquareEquationLib_o) -o main.exe 
+SquareEquation: $(Main_o) $(Log_Folder)/lib/liblog.a $(OptsCmdLine_Folder)/lib/*.a $(SquareEquation_Folder)/lib/*.a
+	$(CC) $(CFLAGS) $(Main_o) $(Log_Folder)/lib/*.a $(OptsCmdLine_Folder)/lib/*.a $(SquareEquation_Folder)/lib/*.a -o main.exe
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+#Создание объектных файлов
+$(Main_o): $(Main_cpp)
+	$(CC) $(CFLAGS) -c $@
 
-$(Log_o): $(Log_cpp)
-	$(CC) $(CFLAGS) -c $(Log_cpp) -o $(Log_o)
+build/*.o: src/*.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(OptionsCmdLine_o): $(OptionsCmdLine_cpp)
-	$(CC) $(CFLAGS) -c $(OptionsCmdLine_cpp) -o $(OptionsCmdLine_o)
+$(Log_Folder)/build/%.o: $(Log_Folder)/src/%.cpp  
 
-$(SquareEquationLib_o): $(SquareEquationLib_cpp)
-	$(CC) $(CFLAGS) -c $(SquareEquationLib_cpp) -o $(SquareEquationLib_o)
+$(OptsCmdLine_Folder)/build/*.o: $(OptsCmdLine_Folder)/src/*.cpp
+	$(CC) $(CFLAGS) -c $^ -C $(OptsCmdLine_Folder)/build
+
+$(SquareEquation_Folder)/build/*.o: $(SquareEquation_Folder)/src/*.cpp
+	$(CC) $(CFLAGS) -c $^ -C $(SquareEquation_Folder)/build
+
+#Создание архивов
+$(Log_Folder)/lib/libLog.a: $(Log_Folder)/build/*.o
+	ar r $@ $^
+
+$(OptsCmdLine_Folder)/lib/libOptionsCmdLine.a: $(OptionsCmdLine_Folder)/build/*.o
+	ar r $@ $^
+
+$(SquareEquation_Folder)/lib/libSquareEquation.a: $(SquareEquationLib__build)/build/*.o
+	ar r $@ $^
+
+
