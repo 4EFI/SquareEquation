@@ -16,6 +16,8 @@ using std::isfinite;
 
 int SolveLinearEquation (double a, double b, double *solution)
 {
+    $LOG_LVL_UP
+
     //{ ASSERT
     assert (isfinite (a) != 0);
     assert (isfinite (b) != 0);
@@ -36,6 +38,7 @@ $$          (return 0;)
 
     *solution = (-b) / a;
 
+    // Remove -0
     if ( CompareNumbers (*solution, 0) )
     {
             *solution = 0;
@@ -87,28 +90,21 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
     {
         solutions[0] = -b / (2*a);
 
-	//
-        #pragma GCC diagnostic push
-        #pragma GCC diagnostic ignored "-Wfloat-equal"
-
-        if (solutions[0] == -0) solutions[0] = 0;
-
-        #pragma GCC diagnostic pop
+        // Remove -0
+        if ( CompareNyumbers(solutions[0] == 0 )
+        {
+            solutions[0] = 0;
+        }
 
         return 1;
     }
-//
-    else
-    {
-        double sqrtD = sqrt (D);
 
-        solutions[0] = ( -b - sqrtD ) / (2*a);
-        solutions[1] = ( -b + sqrtD ) / (2*a);
+    double sqrtD = sqrt (D);
 
-        return 2;
-    }
+    solutions[0] = ( -b - sqrtD ) / (2*a);
+    solutions[1] = ( -b + sqrtD ) / (2*a);
 
-    return -1;
+    return 2;
 }
 
 //-----------------------------------------------------------------------------
