@@ -87,28 +87,17 @@ int SolveSquareEquation (double a, double b, double c, double *solutions)
     {
         solutions[0] = -b / (2*a);
 
-	//
-        #pragma GCC diagnostic push
-        #pragma GCC diagnostic ignored "-Wfloat-equal"
-
-        if (solutions[0] == -0) solutions[0] = 0;
-
-        #pragma GCC diagnostic pop
+        if ( CompareNumbers(solutions[0], 0) ) solutions[0] = 0;
 
         return 1;
     }
-//
-    else
-    {
-        double sqrtD = sqrt (D);
 
-        solutions[0] = ( -b - sqrtD ) / (2*a);
-        solutions[1] = ( -b + sqrtD ) / (2*a);
+    double sqrtD = sqrt (D);
 
-        return 2;
-    }
+    solutions[0] = ( -b - sqrtD ) / (2*a);
+    solutions[1] = ( -b + sqrtD ) / (2*a);
 
-    return -1;
+    return 2;
 }
 
 //-----------------------------------------------------------------------------
