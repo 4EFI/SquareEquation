@@ -7,7 +7,7 @@ OptionsCmdLine_cpp    = OptionsCmdLine\src\OptionsCmdLine.cpp
 SquareEquationLib_cpp = Math\src\SquareEquationLib.cpp 
 
 #־בתוךעםûו פאיכû
-Log_o                 = LOG\lib\Log.o
+Log_o                 = LOG\lib\LOG.o
 OptionsCmdLine_o      = OptionsCmdLine\lib\OptionsCmdLine.o
 SquareEquationLib_o   = Math\lib\SquareEquationLib.o
 
@@ -27,3 +27,8 @@ $(OptionsCmdLine_o): $(OptionsCmdLine_cpp)
 
 $(SquareEquationLib_o): $(SquareEquationLib_cpp)
 	$(CC) $(CFLAGS) -c $(SquareEquationLib_cpp) -o $(SquareEquationLib_o)
+
+clean:
+	rm -f Log_o
+	rm -f OptionsCmdLine_o	
+	rm -f SquareEquationLib_o

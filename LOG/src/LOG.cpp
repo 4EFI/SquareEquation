@@ -1,7 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
 #include <stdarg.h>
+
+#ifdef _WIN32
+    #include <io.h>
+
+#elif __linux__
+   #include <inttypes.h>
+   #include <unistd.h>
+
+#endif
+
 
 #include "../LOG.h"
 
@@ -51,13 +60,8 @@ void _LOG (FILE* file, const char fileName[], const int line, const char str[], 
 //-----------------------------------------------------------------------------
 
 FILE* OpenLogFile (const char* path)
-{
+{   
     atexit (&FinishLog);
-
-    if ( !IsTTY (LogFile) )
-    {
-        fclose (LogFile);
-    }
 
     LogFile = fopen (path, "a");
 

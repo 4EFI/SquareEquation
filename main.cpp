@@ -13,8 +13,6 @@
 
 using std::isfinite;
 
-//-----------------------------------------------------------------------------
-
 //{----------------------------------------------------------------------------
 /// \brief Функция для ввода коэффицентов
 ///
@@ -33,7 +31,7 @@ void EnterCoefficient (double *a, double *b, double *c);
 //{----------------------------------------------------------------------------
 /// \brief Функция для вывода решений квадратного уравнения
 /// \param numSolutions количество решений
-/// \param *solutions массив рещений уравнения
+/// \param *solutions массив решений уравнения
 //}----------------------------------------------------------------------------
 
 void PrintSolutions (int numSolutions, double *solutions);
@@ -70,7 +68,7 @@ int main (int argc, const char *argv[])
             "Она не решает круглые уравнения, сори:(((\n");
     }
 
-    int numOption = ProcessCommandLine (argc, 
+    int numOption = ProcessCommandLine (argc,
 					argv,
                                         sizeof (Options) / sizeof (Option),
                                         Options);
@@ -207,7 +205,7 @@ int RunUnitTests(int argc, const char* argv[], int pos)
 
     for (int nowUnitTest = 0; ; nowUnitTest++)
     {
-	//  necessary function 
+	//  necessary function
         int numRead = fscanf (file, "%lf %lf %lf", &a, &b, &c);
 
         if (numRead == EOF)

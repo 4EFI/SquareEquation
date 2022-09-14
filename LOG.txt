@@ -56,3 +56,14 @@ End of Log!
 01|     Math\src\SquareEquationLib.cpp:33: return 0;
 00| main.cpp:86: 0
 End of Log!
+01|     main.cpp:106: True conditions
+End of Log!
+01|     main.cpp:106: True conditions
+End of Log!
+01|     main.cpp:106: True conditions
+End of Log!
+01|     main.cpp:106: True conditions
+End of Log!
+01|     main.cpp:104: True conditions
+00| main.cpp:85: 0
+End of Log!
